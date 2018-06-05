@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 const net = require('net')
+const log = require('tb-log')
 
 let socketProxy = (req,socket,head) => {
   let uri = {
@@ -20,7 +21,7 @@ let socketProxy = (req,socket,head) => {
   let socketConnect = net.createConnection(uri,() => {
     let cb = err => {
       if(err){
-        console.log('request error:'+err.message)
+        log.error('request error:'+err.message)
         socketConnect.end()
         socket.end()
         throw new Error(err)
@@ -36,15 +37,15 @@ let socketProxy = (req,socket,head) => {
         headerLines += key + ': ' + headers[key] + '\r\n'
       socket.write(status + headerLines + '\r\n', 'UTF-8', cb)
     }catch(e){
-      console.log('socketConnect error:',+ e.message)
+      log.error('socketConnect error:',+ e.message)
     }
   })
   socketConnect.setNoDelay(true)
   socketConnect.on('data', data => {
-    console.log(data, '-----')
+    log.info(data, '-----')
   })
   socketConnect.on('error', e => {
-    console.log(e)
+    log.error(e)
   })
 }
 exports = module.exports = socketProxy

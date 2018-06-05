@@ -4,6 +4,7 @@ exports = module.exports = {
     'mo/q/generalplat/generalPlat': async res => {
         res = JSON.parse(res)
         res.data.has_more = 0
+        res.data.head.show_style = 2
         return res
     },
     '/test/testget': async res => {

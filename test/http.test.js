@@ -87,20 +87,20 @@ describe('Test for POST/FORM method', () => {
   })
 })
 
-// const req = http.request({
-//   port: 8888,
-//   hostname: '127.0.0.1',
-//   method: 'CONNECT',
-//   path: '/test/socket'
-// })
-// req.on('connect', (res, socket, head) => {
-//   socket.write('socket pipe establish successfully')
-//   socket.on('data', function(data) {
-//     console.log('DATA: ' + data)
-//   })
-//   socket.on('end', function() {
-//     console.log('Connection closed')
-//   })
-// })
-// req.end()
+const req = http.request({
+  port: 8888,
+  hostname: '127.0.0.1',
+  method: 'CONNECT',
+  path: '/test/socket'
+})
+req.on('connect', (res, socket, head) => {
+  socket.write('socket pipe establish successfully')
+  socket.on('data', function(data) {
+    console.log('DATA: ' + data)
+  })
+  socket.on('end', function() {
+    console.log('Connection closed')
+  })
+})
+req.end()
 

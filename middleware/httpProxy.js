@@ -3,6 +3,7 @@
 const rp = require('request-promise-native')
 const tough = require('tough-cookie')
 const url = require('url')
+const log = require('tb-log')
 
 const Cookie = tough.Cookie
 
