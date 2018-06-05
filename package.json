@@ -1,0 +1,48 @@
+{
+  "name": "otp-proxy",
+  "version": "1.0.0",
+  "description": "baidu otp proxy",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "cd ./test && NODE_ENV=test jest"
+  },
+  "keywords": [
+    "proxy"
+  ],
+  "author": "xietianxin@baidu.com",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5",
+    "tough-cookie": "^2.3.4"
+  },
+  "devDependencies": {
+    "jest": "^23.0.1",
+    "standard": "^11.0.1"
+  },
+  "jest": {
+    "testMatch": [
+      "**/test/*.test.js"
+    ],
+    "coverageDirectory": "./coverage",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text"
+    ],
+    "collectCoverageFrom": [
+      "!**/node_modules/**",
+      "!**/test/**",
+      "!**/bin/**",
+      "!**/template/**",
+      "**/*.js",
+      "!**/coverage/**"
+    ],
+    "timers": "fake"
+  }
+}
