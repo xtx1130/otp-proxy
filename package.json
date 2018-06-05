@@ -1,6 +1,6 @@
 {
   "name": "otp-proxy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "baidu otp proxy",
   "main": "index.js",
   "bin": {
