@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "baidu otp proxy",
   "main": "index.js",
+  "bin": {
+    "otproxy": "./bin/otp.js"
+  },
   "scripts": {
     "test": "jest",
     "start": "cd ./test && NODE_ENV=test jest"
