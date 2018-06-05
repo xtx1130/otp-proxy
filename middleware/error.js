@@ -1,7 +1,7 @@
 'use strict'
 const log = require('tb-log')
 
-exports = module.exports = async function(ctx, next){
+exports = module.exports = async function (ctx, next) {
   try {
     await next()
   } catch (e) {

@@ -1,14 +1,14 @@
 {
   "name": "otp-proxy",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "baidu otp proxy",
   "main": "index.js",
   "bin": {
     "otproxy": "./bin/otp.js"
   },
   "scripts": {
-    "test": "jest",
-    "start": "cd ./test && NODE_ENV=test jest"
+    "lint": "standard **/*.js --verbose --fix",
+    "test": "cd ./test && NODE_ENV=test jest"
   },
   "keywords": [
     "proxy"
@@ -48,5 +48,11 @@
       "!**/coverage/**"
     ],
     "timers": "fake"
+  },
+  "standard": {
+    "ignore": [
+      "**/out/",
+      "**/test/"
+    ]
   }
 }
