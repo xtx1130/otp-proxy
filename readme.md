@@ -31,7 +31,10 @@ exports = module.exports = {
 }
 ```
 
-- `npm run proxy` 会对8888端口进行监听，在发起对`mo/q/generalplat/generalPlat`的请求时候，会走如上逻辑，修改部分键值再进行返回。
+- `npm run proxy` 会对8888端口进行监听，如图所示：
+![img](http://gitlab.baidu.com/xietianxin/otp-proxy/raw/master/img/begin.png)
+![img](http://gitlab.baidu.com/xietianxin/otp-proxy/raw/master/img/return.png)
+在发起对`mo/q/generalplat/generalPlat`的请求时候，返回的json串会经过`proxy-data.js`中设计的中间件进行二次加工再返回。
 
 ## API 接入
 ```js
