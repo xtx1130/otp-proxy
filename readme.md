@@ -30,7 +30,8 @@ exports = module.exports = {
   }
 }
 ```
-在发起对`mo/q/generalplat/generalPlat`的请求时候，会走如上逻辑，修改部分键值再进行返回。
+
+- `npm run proxy` 会对8888端口进行监听，在发起对`mo/q/generalplat/generalPlat`的请求时候，会走如上逻辑，修改部分键值再进行返回。
 
 ## API 接入
 ```js
