@@ -38,6 +38,7 @@ let socketProxy = (req, socket, head) => {
       log.error('socketConnect error:', +e.message)
     }
   })
+  console.log(socketConnect.isPaused)
   socketConnect.setNoDelay(true)
   socketConnect.on('data', data => {
     log.info(data, '-----')

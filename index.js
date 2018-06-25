@@ -1,5 +1,7 @@
 'use strict'
 
+// const easyMonitor = require('easy-monitor')
+// easyMonitor('otp-proxy')
 const http = require('http')
 const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')
@@ -10,7 +12,10 @@ const error = require('./middleware/error')
 const socketProxy = require('./middleware/socketProxy')
 
 let httpApp = new Koa()
-
+httpApp.use((ctx, next) => {
+  ctx.timers = process.hrtime()
+  return next()
+})
 httpApp.use(error)
 httpApp.use(bodyParser())
 httpApp.use(httpProxy)

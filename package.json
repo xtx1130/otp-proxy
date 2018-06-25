@@ -8,7 +8,8 @@
   },
   "scripts": {
     "lint": "standard **/*.js --verbose --fix",
-    "test": "cd ./test && NODE_ENV=test jest"
+    "test": "cd ./test && NODE_ENV=test jest",
+    "benchmark": "cd ./test && NODE_ENV=benchmark node --expose-gc ../cluster.js"
   },
   "keywords": [
     "proxy"
@@ -25,6 +26,7 @@
     "tough-cookie": "^2.3.4"
   },
   "devDependencies": {
+    "easy-monitor": "^2.2.2",
     "jest": "^23.0.1",
     "standard": "^11.0.1"
   },
@@ -41,6 +43,7 @@
     ],
     "collectCoverageFrom": [
       "!**/node_modules/**",
+      "!**/benchmark/**",
       "!**/test/**",
       "!**/bin/**",
       "!**/template/**",
