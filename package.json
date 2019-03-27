@@ -17,12 +17,13 @@
   "author": "xietianxin@baidu.com",
   "license": "MIT",
   "dependencies": {
+    "@xtx1130/tb-log": "^2.0.1",
     "koa": "^2.5.1",
     "koa-bodyparser": "^4.2.1",
+    "koa-compress": "^3.0.0",
     "koa-router": "^7.4.0",
     "request": "^2.87.0",
     "request-promise-native": "^1.0.5",
-    "tb-log": "git+http://gitlab.baidu.com/tbCli/tb-log.git",
     "tough-cookie": "^2.3.4"
   },
   "devDependencies": {

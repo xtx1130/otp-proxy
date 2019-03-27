@@ -5,13 +5,21 @@
 const http = require('http')
 const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')
-const log = require('tb-log')
+const log = require('@xtx1130/tb-log')
 const httpProxy = require('./middleware/httpProxy')
 const mock = require('./middleware/mock')
 const error = require('./middleware/error')
 const socketProxy = require('./middleware/socketProxy')
+const compress = require('koa-compress')
 
 let httpApp = new Koa()
+httpApp.use(compress({
+  filter: function (content_type) {
+    return /text/i.test(content_type)
+  },
+  threshold: 2048,
+  flush: require('zlib').Z_SYNC_FLUSH
+}))
 httpApp.use((ctx, next) => {
   ctx.timers = process.hrtime()
   return next()
