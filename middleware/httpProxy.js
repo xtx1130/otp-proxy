@@ -49,9 +49,11 @@ exports = module.exports = async function (ctx, next) {
       }
       res = await rp(options)
     }
-    console.log(`网络开销：${process.pid}`, process.hrtime(timer))
+    let rqTime = process.hrtime(timer)
+    rqTime = rqTime[0] + rqTime[1]/1000000000
+    console.log(`request中间件网络开销：${process.pid}`, rqTime + '秒')
   } catch (e) {
-    throw new Error(e)
+    throw new Error(JSON.parse(e.message))
   }
   if (res.statusCode === 200) {
     for (let i in res.headers) {
@@ -66,6 +68,6 @@ exports = module.exports = async function (ctx, next) {
   }
   ctx.finalRes = res.body
   await next()
+  ctx.compress = true
   ctx.body = ctx.finalRes
-  console.log(process.hrtime(ctx.timers))
 }
