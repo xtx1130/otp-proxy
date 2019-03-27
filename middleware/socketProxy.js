@@ -1,7 +1,7 @@
 'use strict'
 
 const net = require('net')
-const log = require('tb-log')
+const log = require('@xtx1130/tb-log')
 
 let socketProxy = (req, socket, head) => {
   let uri = {

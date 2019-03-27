@@ -2,7 +2,7 @@
 
 const path = require('path')
 const assert = require('assert')
-const log = require('tb-log')
+const log = require('@xtx1130/tb-log')
 
 exports = module.exports = async function (ctx, next) {
   let map, bodyStr
@@ -19,6 +19,7 @@ exports = module.exports = async function (ctx, next) {
       log.info(`${ctx.request.url} has proxyed by otp-proxy`)
       if (Object.prototype.toString.call(ctx.finalRes) === '[object Object]') { bodyStr = JSON.stringify(ctx.finalRes) } else { bodyStr = ctx.finalRes }
       ctx.finalRes = await map[key].call(null, bodyStr)
+      console.log(ctx.finalRes, ctx.type,'-----final')
     }
   })])
   await next()
