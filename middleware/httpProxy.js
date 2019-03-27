@@ -51,7 +51,7 @@ exports = module.exports = async function (ctx, next) {
     }
     let rqTime = process.hrtime(timer)
     rqTime = rqTime[0] + rqTime[1]/1000000000
-    console.log(`request中间件网络开销：${process.pid}`, rqTime + '秒')
+    console.log('request中间件网络开销：' +  rqTime + '秒')
   } catch (e) {
     throw new Error(JSON.parse(e.message))
   }
@@ -68,6 +68,7 @@ exports = module.exports = async function (ctx, next) {
   }
   ctx.finalRes = res.body
   await next()
+  ctx.set('content-encoding', '')
   ctx.compress = true
   ctx.body = ctx.finalRes
 }
