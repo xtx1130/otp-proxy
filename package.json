@@ -9,7 +9,9 @@
   "scripts": {
     "lint": "standard **/*.js --verbose --fix",
     "test": "cd ./test && NODE_ENV=test jest",
-    "benchmark": "cd ./test && NODE_ENV=benchmark node --expose-gc ../cluster.js"
+    "benchmark": "cd ./test && NODE_ENV=benchmark node --expose-gc ../cluster.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "proxy"
@@ -24,7 +26,8 @@
     "koa-router": "^7.4.0",
     "request": "^2.87.0",
     "request-promise-native": "^1.0.5",
-    "tough-cookie": "^2.3.4"
+    "tough-cookie": "^2.3.4",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "easy-monitor": "^2.2.2",
@@ -58,5 +61,6 @@
       "**/out/",
       "**/test/"
     ]
-  }
+  },
+  "snyk": true
 }
